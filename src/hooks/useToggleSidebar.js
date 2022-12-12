@@ -1,3 +1,11 @@
 import { ref } from "vue";
 
-export default () => {};
+export default () => {
+  const fullSidebar = ref(true);
+
+  const toggleFullSidebar = () => {
+    fullSidebar.value = !fullSidebar.value;
+  };
+
+  return { fullSidebar, toggleFullSidebar };
+};

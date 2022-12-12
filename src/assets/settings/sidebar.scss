@@ -1,4 +1,132 @@
-.menu {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    height: 100vh;
+.menu.full-sidebar {
+    li {
+        overflow: hidden;
+        width: 100%;
+        a {
+            span {
+                opacity: 1;
+                white-space: nowrap;
+                transition: all 0.7s ease-in-out;
+            }
+        }
+    }
+    @media (min-width: 1024px) {
+        width: 345px;
+        transition: all 0.7s ease-in-out;
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+        width: 80px;
+        transition: all 0.7s ease-in-out;
+        li {
+            &:first-of-type {
+                a {
+                    width: 100%;
+                }
+            }
+            &:not(:first-of-type) {
+                a {
+                    transition: all 0.5s ease-in-out;
+                    span {
+                        white-space: nowrap;
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+    opacity: 1;
+    @media (min-width: 0px) and (max-width: 767px) {
+        transition: all 0.7s ease-in-out;
+        width: 0;
+        margin: 0;
+        padding: 0;
+        li {
+            overflow: hidden;
+            width: 100%;
+        }
+    }
+}
+.menu.small-sidebar {
+    transition: all 0.7s ease-in-out;
+    @media (min-width: 768px) {
+        width: 80px;
+        transition: all 0.7s ease-in-out;
+        li {
+            width: 100%;
+            transition: all 0.7s ease-in-out;
+
+            &:first-of-type {
+                a {
+                    width: 100%;
+                }
+            }
+            &:not(:first-of-type) {
+                a {
+                    transition: all 0.5s ease-in-out;
+                    span {
+                        white-space: nowrap;
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 0px) and (max-width: 767px) {
+        transition: all 4.7s ease-in-out;
+        position: relative;
+        width: 0;
+        margin: 0;
+        padding: 0;
+        li {
+            overflow: hidden;
+            width: 100%;
+            &:first-of-type {
+                a {
+                    width: 100%;
+                }
+            }
+            &:not(:first-of-type) {
+                a {
+                    span {
+                        white-space: nowrap;
+                        opacity: 0;
+                        width: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.overlay-sidebar {
+    .overlay {
+        transition: all 0.7s ease-in-out;
+        @media (min-width: 0px) and (max-width: 767px) {
+            transition: all 0.7s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    }
+    .menu {
+        @media (min-width: 0px) and (max-width: 767px) {
+            position: fixed;
+            transition: all 0.7s ease-in-out;
+            width: 260px;
+            /* margin-right: 15px; */
+            li {
+                overflow: hidden;
+                width: 100%;
+                a {
+                    span {
+                        width: 100% !important;
+                        opacity: 1 !important;
+                    }
+                }
+            }
+        }
+    }
 }

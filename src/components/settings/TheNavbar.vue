@@ -3,7 +3,7 @@
     <div class="flex-1">
       <div class="flex-none">
         <button
-          class="btn btn-square btn-ghost"
+          class="btn btn-square btn-ghost bg-transparent hover:bg-transparent"
           @click="$emit('toggleFullSidebar')"
         >
           <svg

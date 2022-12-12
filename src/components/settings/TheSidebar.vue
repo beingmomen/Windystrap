@@ -9,7 +9,7 @@
       <a class="" :class="fullSidebar ? '' : ''">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-8 w-8"
+          class="h-8 w-8 min-w-[2rem]"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -29,7 +29,7 @@
       <a :class="fullSidebar ? '' : ''">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-8 w-8"
+          class="h-8 w-8 min-w-[2rem]"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -49,7 +49,7 @@
       <a :class="fullSidebar ? '' : ''">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-8 w-8"
+          class="h-8 w-8 min-w-[2rem]"
           fill="none"
           viewBox="0 0 30 30"
           stroke="currentColor"

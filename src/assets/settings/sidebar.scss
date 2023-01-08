@@ -12,9 +12,9 @@
     }
     @media (min-width: 1024px) {
         width: 345px;
-        transition: all 0.7s ease-in-out;
+        /* transition: all 0.7s ease-in-out; */
     }
-    @media (min-width: 768px) and (max-width: 1023px) {
+    /*/  @media (min-width: 768px) and (max-width: 1023px) {
         width: 80px;
         transition: all 0.7s ease-in-out;
         li {
@@ -36,7 +36,7 @@
     }
     opacity: 1;
     @media (min-width: 0px) and (max-width: 767px) {
-        transition: all 0.4s ease-in-out;
+        transition: all 0.3s ease-in-out;
         width: 0;
         margin: 0;
         padding: 0;
@@ -44,12 +44,12 @@
             overflow: hidden;
             width: 100%;
         }
-    }
+    } */
 }
 .menu.small-sidebar {
     @media (min-width: 768px) {
         width: 80px;
-        transition: all 0.7s ease-in-out;
+        /* transition: all 0.7s ease-in-out; */
         li {
             width: 100%;
             transition: all 0.7s ease-in-out;
@@ -96,6 +96,14 @@
     }
 }
 
+.static-sidebar {
+    .full-sidebar {
+        @media (min-width: 0px) and (max-width: 767px) {
+            display: none;
+        }
+    }
+}
+
 .overlay-sidebar {
     .overlay {
         @media (min-width: 0px) and (max-width: 767px) {
@@ -108,20 +116,34 @@
         }
     }
     .menu {
-        @media (min-width: 0px) and (max-width: 767px) {
-            position: fixed;
-            transition: all 0.4s ease-in-out;
-            width: 260px;
-            li {
-                overflow: hidden;
-                width: 100%;
-                a {
-                    span {
-                        width: 100% !important;
-                        opacity: 1 !important;
+        &.full-sidebar {
+            @media (min-width: 0px) and (max-width: 767px) {
+                position: fixed;
+                transition: all 0.4s ease-in-out;
+                width: 260px;
+                li {
+                    overflow: hidden;
+                    width: 100%;
+                    a {
+                        span {
+                            width: 100% !important;
+                            opacity: 1 !important;
+                        }
                     }
                 }
             }
         }
     }
+}
+
+/*  Toggle sidebars with transition */
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
 }

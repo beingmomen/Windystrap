@@ -1,14 +1,12 @@
 <template>
   <div
     class="flex-row block md:flex"
-    :class="fullSidebar ? 'static-sidebar' : 'overlay-sidebar'"
+    :class="fullSidebarMobile ? 'overlay-sidebar' : 'static-sidebar'"
   >
     <div class="overlay z-40" @click="toggleFullSidebar"></div>
-    <Sidebar
-      class="mr-[15px] fixed md:static z-40"
-      :class="fullSidebar ? 'full-sidebar' : 'small-sidebar'"
-      :fullSidebar="fullSidebar"
-    />
+    <transition name="fade" mode="out-in">
+      <component :is="fullSidebar ? FullSidebar : SmallSidebar"></component>
+    </transition>
     <div class="content w-full shadow-layout rounded-box">
       <Navbar
         class="rounded-box z-30 shadow-[rgba(99,99,99,0.2)_0px_0px_12px_0px]"
@@ -24,10 +22,12 @@ import { onMounted, watch } from "vue";
 import useToggleSidebar from "../hooks/useToggleSidebar.js";
 
 // Imports Components
-import Sidebar from "../components/settings/TheSidebar.vue";
+import FullSidebar from "../components/settings/TheFullSidebar.vue";
+import SmallSidebar from "../components/settings/TheSmallSidebar.vue";
 import Navbar from "../components/settings/TheNavbar.vue";
 
-const { fullSidebar, toggleFullSidebar } = useToggleSidebar();
+const { fullSidebar, fullSidebarMobile, toggleFullSidebar } =
+  useToggleSidebar();
 </script>
 
 <style lang="scss" scoped>

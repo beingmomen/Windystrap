@@ -1,5 +1,19 @@
 <template>
-  <ul class="menu shadow-layout h-screen bg-base-100 p-2 rounded-box">
+  <ul
+    class="
+      menu
+      shadow-layout
+      h-screen
+      bg-base-100
+      p-2
+      rounded-box
+      mr-[15px]
+      fixed
+      md:static
+      z-40
+      full-sidebar
+    "
+  >
     <li class="logo mb-2">
       <router-link to="" class="btn btn-ghost normal-case text-xl">
         daisyUI

@@ -1,6 +1,6 @@
 {
-  "name": "vue3-tailwind-template",
-  "version": "0.0.0",
+  "name": "Windystrap",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "vite",

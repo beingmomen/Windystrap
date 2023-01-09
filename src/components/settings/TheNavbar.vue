@@ -2,24 +2,7 @@
   <div class="navbar bg-base-100 mx-auto mt-2 w-[98%]">
     <div class="flex-1">
       <div class="flex-none">
-        <button
-          class="btn btn-square btn-ghost bg-transparent hover:bg-transparent"
-          @click="$emit('toggleFullSidebar')"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            class="inline-block w-5 h-5 stroke-current"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
-        </button>
+        <slot name="menu" />
       </div>
     </div>
     <div class="flex-none gap-2">

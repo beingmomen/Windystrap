@@ -1,5 +1,5 @@
 <template>
-  <div
+  <!-- <div
     class="flex-row block md:flex"
     :class="fullSidebarMobile ? 'overlay-sidebar' : 'static-sidebar'"
   >
@@ -16,6 +16,38 @@
         @toggleFullSidebar="toggleFullSidebar"
       />
       <router-view></router-view>
+    </div>
+  </div> -->
+  <div class="drawer drawer-mobile">
+    <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+    <div
+      class="
+        drawer-content
+        flex flex-col
+        items-center
+        justify-start
+        shadow-layout
+        mx-2
+      "
+    >
+      <Navbar
+        class="rounded-box z-30 shadow-[rgba(99,99,99,0.2)_0px_0px_12px_0px]"
+      >
+        <template #menu>
+          <label for="my-drawer-2" class="drawer-button lg:hidden">
+            <fa-icon :icon="['fas', 'bars']" class="fa-xl" />
+          </label>
+        </template>
+      </Navbar>
+      <router-view></router-view>
+    </div>
+    <div class="drawer-side shadow-layout">
+      <label for="my-drawer-2" class="drawer-overlay"></label>
+      <ul class="menu p-4 w-80 bg-base-100 text-base-content">
+        <!-- Sidebar content here -->
+        <li><a>Sidebar Item 1</a></li>
+        <li><a>Sidebar Item 2</a></li>
+      </ul>
     </div>
   </div>
 </template>

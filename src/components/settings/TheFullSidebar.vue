@@ -2,17 +2,14 @@
   <ul
     class="
       menu
-      shadow-layout
       h-screen
       bg-base-100
-      p-2
       rounded-box
-      mr-[15px]
       fixed
       md:static
-      z-40
-      full-sidebar
-      lg:w-[345px]
+      p-2
+      w-80
+      text-base-content
     "
   >
     <li class="logo mb-2 mx-[5.500px]">
@@ -48,5 +45,4 @@
 </script>
 
 <style lang="scss" scoped>
-@import url("../../assets/settings/sidebar.scss");
 </style>

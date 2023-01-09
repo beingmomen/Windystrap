@@ -12,6 +12,7 @@
       md:static
       z-40
       full-sidebar
+      lg:w-[345px]
     "
   >
     <li class="logo mb-2">

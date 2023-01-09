@@ -1,20 +1,37 @@
 .static-sidebar {
-    .full-sidebar {
-        @media (min-width: 0px) and (max-width: 767px) {
-            display: none;
-        }
-    }
-}
-
-.overlay-sidebar {
-    .overlay {
-        @media (min-width: 0px) and (max-width: 767px) {
+    .overlay-container {
+        /* @media (min-width: 0px) and (max-width: 767px) {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0);
+            transition: all 0.5s ease-in-out;
+            z-index: -50;
+        } */
+    }
+    .full-sidebar {
+        @media (min-width: 0px) and (max-width: 767px) {
+            margin-top: -8px;
+            margin-left: -215px;
+            transition: all 0.5s ease-in-out;
+        }
+    }
+}
+
+.overlay-sidebar {
+    .overlay-container {
+        &.overlay {
+            @media (min-width: 0px) and (max-width: 767px) {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.4);
+                transition: all 0.5s ease-in-out;
+            }
         }
     }
     .menu {
@@ -25,6 +42,7 @@
             @media (min-width: 0px) and (max-width: 767px) {
                 position: fixed;
                 width: 260px;
+                transition: all 0.5s ease-in-out;
             }
         }
     }
@@ -33,7 +51,7 @@
 /*  Toggle sidebars with transition */
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity 0.1s ease;
+    transition: opacity 0.2s ease;
 }
 
 .fade-enter-from,

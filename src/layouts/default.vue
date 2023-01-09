@@ -3,7 +3,10 @@
     class="flex-row block md:flex"
     :class="fullSidebarMobile ? 'overlay-sidebar' : 'static-sidebar'"
   >
-    <div class="overlay z-40" @click="toggleFullSidebar"></div>
+    <div
+      class="overlay-container overlay z-40"
+      @click="toggleFullSidebar"
+    ></div>
     <transition name="fade" mode="out-in">
       <component :is="fullSidebar ? FullSidebar : SmallSidebar"></component>
     </transition>
@@ -18,7 +21,6 @@
 </template>
 
 <script setup>
-import { onMounted, watch } from "vue";
 import useToggleSidebar from "../hooks/useToggleSidebar.js";
 
 // Imports Components

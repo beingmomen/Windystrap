@@ -49,4 +49,5 @@ const { fullSidebar, toggleFullSidebar } = useToggleSidebar();
 </script>
 
 <style lang="scss" scoped>
+@import url("../assets/settings/sidebar.scss");
 </style>

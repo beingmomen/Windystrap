@@ -18,7 +18,7 @@
         <template #menu>
           <fa-icon
             :icon="['fas', 'bars']"
-            class="fa-xl hidden lg:inline-block"
+            class="fa-xl hidden lg:inline-block cursor-pointer"
             @click="toggleFullSidebar"
           />
           <label for="my-drawer-2" class="drawer-button lg:hidden">

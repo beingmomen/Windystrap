@@ -2,15 +2,12 @@
   <ul
     class="
       menu
-      shadow-layout
       h-screen
       bg-base-100
       p-2
       rounded-box
-      mr-[15px]
       fixed
       md:static
-      z-40
       hidden
       md:flex
     "

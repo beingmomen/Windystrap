@@ -153,7 +153,7 @@
             </a>
           </li>
           <li><a>Settings</a></li>
-          <li><a>Logout</a></li>
+          <li @click="logout"><a>Logout</a></li>
         </ul>
       </div>
     </div>
@@ -163,9 +163,14 @@
 <script setup>
 import useThemes from "../../hooks/useThemes.js";
 import useI18n from "../../hooks/useI18n.js";
-
+import { useStore } from "vuex";
 const { setTheme, themes } = useThemes();
 const { changeLang, currentLang, languages } = useI18n();
+const store = useStore();
+
+const logout = () => {
+  store.dispatch("login/logout");
+};
 </script>
 
 <style lang="scss" scoped>

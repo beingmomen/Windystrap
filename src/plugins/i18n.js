@@ -5,8 +5,8 @@ import ar from "../locales/ar.json";
 
 const i18n = createI18n({
   legacy: false,
-  locale: import.meta.env.VITE_I18N_LOCALE || "en",
-  fallbackLocale: import.meta.env.VITE_I18N_FALLBACK_LOCALE || "ar",
+  locale: "en",
+  fallbackLocale: "en",
   messages: {
     en,
     ar,

@@ -41,7 +41,7 @@
           <div class="form-control mt-6">
             <button
               class="btn btn-primary"
-              @click="dispatchAction('login/login', data)"
+              @click="dispatchAction('auth/login', data)"
             >
               Login
             </button>
@@ -60,7 +60,7 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue";
+import { reactive } from "vue";
 import useStoreFun from "../../../hooks/useStoreFun";
 const { dispatchAction } = useStoreFun();
 

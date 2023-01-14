@@ -169,7 +169,7 @@ const { changeLang, currentLang, languages } = useI18n();
 const store = useStore();
 
 const logout = () => {
-  store.dispatch("login/logout");
+  store.dispatch("auth/logout");
 };
 </script>
 

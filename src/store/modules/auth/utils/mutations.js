@@ -4,4 +4,7 @@ export default {
     state.token = payload.token;
     state.tokenExpiration = payload.tokenExpiration;
   },
+  user(state, payload) {
+    state.user = payload;
+  },
 };

@@ -1,24 +1,20 @@
 import { createStore } from "vuex";
 
-import rootMutations from "./mutations";
-import rootActions from "./actions";
-import rootGetters from "./getters";
+import rootMutations from "./utils/mutations";
+import rootActions from "./utils/actions";
+import rootGetters from "./utils/getters";
 
 // Import Modules
-import register from "./modules/auth/register/index";
-import login from "./modules/auth/login/index";
+import auth from "./modules/auth/index";
 import categories from "./modules/categories/index";
 
 const store = createStore({
   modules: {
+    auth,
     categories,
-    register,
-    login,
   },
   state() {
-    return {
-      name: "Abdelmomen",
-    };
+    return {};
   },
   mutations: rootMutations,
   actions: rootActions,

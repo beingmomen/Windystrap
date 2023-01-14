@@ -1,6 +1,6 @@
-import mutations from "./methods/mutations";
-import actions from "./methods/actions";
-import getters from "./methods/getters";
+import mutations from "./utils/mutations";
+import actions from "./utils/actions";
+import getters from "./utils/getters";
 
 export default {
   namespaced: true,
@@ -9,6 +9,7 @@ export default {
       token: null,
       userId: null,
       tokenExpiration: null,
+      user: null,
     };
   },
   mutations: mutations,

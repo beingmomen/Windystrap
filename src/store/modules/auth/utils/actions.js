@@ -1,27 +1,28 @@
 import axios from "axios";
 import router from "@/router/index";
+const API_KEY = "AIzaSyC8nfZnagAlsna5aVkylZ4C0AFQ6wNlJ2Y";
+const SIGNUP_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`;
+const UPDATE_URL = `https://identitytoolkit.googleapis.com/v1/accounts:update?key=${API_KEY}`;
+const LOOKUP_URL = `https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${API_KEY}`;
+const LOGIN_URL = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`;
 
 export default {
   async createUser({ commit, dispatch }, payload) {
     try {
-      const url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC8nfZnagAlsna5aVkylZ4C0AFQ6wNlJ2Y";
-      const { data, status } = await axios.post(url, payload);
+      const { data, status } = await axios.post(SIGNUP_URL, payload);
       if (status === 200) {
         commit("setUser", data);
         dispatch("updateUser", { ...data, displayName: payload.displayName });
         router.push("/auth/login");
       }
-    } catch ({ response }) {
-      console.warn("error", response.status);
+    } catch (error) {
+      // console.warn("Error creating user:", error);
     }
   },
 
   async updateUser({ commit }, payload) {
     try {
-      const url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyC8nfZnagAlsna5aVkylZ4C0AFQ6wNlJ2Y";
-      const { data, status } = await axios.post(url, {
+      const { data, status } = await axios.post(UPDATE_URL, {
         ...payload,
         photoUrl: "https://placeimg.com/80/80/people",
       });
@@ -30,30 +31,31 @@ export default {
         commit("user", data);
       }
     } catch (error) {
-      console.warn("error", error);
+      // console.warn("Error updating user:", error);
     }
   },
 
-  async currentUser({ commit }, payload) {
+  async currentUser({ commit, dispatch }, payload) {
     if (!payload) return;
     try {
-      const url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=AIzaSyC8nfZnagAlsna5aVkylZ4C0AFQ6wNlJ2Y";
-      const { data, status } = await axios.post(url, { idToken: payload });
+      const {
+        data: {
+          users: [user],
+        },
+        status,
+      } = await axios.post(LOOKUP_URL, {
+        idToken: payload,
+      });
 
       if (status === 200) {
-        commit("user", data.users[0]);
+        commit("user", user);
       }
-    } catch (error) {
-      console.warn("error", error);
-    }
+    } catch (error) {}
   },
 
   async login({ commit, dispatch }, payload) {
     try {
-      const url =
-        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC8nfZnagAlsna5aVkylZ4C0AFQ6wNlJ2Y";
-      const { data, status } = await axios.post(url, payload);
+      const { data, status } = await axios.post(LOGIN_URL, payload);
       if (status === 200) {
         localStorage.setItem("windy_strap-token", data.idToken);
         localStorage.setItem("windy_strap-userId", data.localId);
@@ -67,23 +69,22 @@ export default {
         router.push("/");
       }
     } catch (error) {
-      console.warn("error", error);
+      // console.warn("Error logging in:", error);
     }
   },
-
   autoLogin({ commit, dispatch }) {
     const token = localStorage.getItem("windy_strap-token");
     const userId = localStorage.getItem("windy_strap-userId");
     const tokenExpiration = localStorage.getItem("windy_strap-tokenExpiration");
+    if (!token) return;
     commit("setUser", { userId, token, tokenExpiration });
-
     dispatch("currentUser", token);
   },
 
   logout({ commit }) {
-    localStorage.removeItem("windy_strap-token", null);
-    localStorage.removeItem("windy_strap-userId", null);
-    localStorage.removeItem("windy_strap-tokenExpiration", null);
+    localStorage.removeItem("windy_strap-token");
+    localStorage.removeItem("windy_strap-userId");
+    localStorage.removeItem("windy_strap-tokenExpiration");
     commit("setUser", { userId: null, token: null, tokenExpiration: null });
     commit("user", null);
     router.push("/auth/login");

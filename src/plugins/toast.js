@@ -1,13 +1,14 @@
-import Toast from "vue-toastification";
+import VueToastification from "vue-toastification";
 // Import the CSS or use your own!
 import "vue-toastification/dist/index.css";
 
-const options = {
+export const options = {
   // You can set your default options here
   timeout: 4000,
 };
 
-export default {
-  Toast,
-  options,
+export const Toast = {
+  install(Vue) {
+    Vue.use(VueToastification, options);
+  },
 };

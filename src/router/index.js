@@ -20,6 +20,33 @@ const router = createRouter({
         isAuth: true,
       },
     },
+    {
+      path: "/admins",
+      name: "admins",
+      component: () => import("@/views/admins/index.vue"),
+      meta: {
+        layout: defaultLayout,
+        isAuth: true,
+      },
+    },
+    {
+      path: "/users",
+      name: "users",
+      component: () => import("@/views/users/index.vue"),
+      meta: {
+        layout: defaultLayout,
+        isAuth: true,
+      },
+    },
+    {
+      path: "/categories",
+      name: "categories",
+      component: () => import("@/views/categories/index.vue"),
+      meta: {
+        layout: defaultLayout,
+        isAuth: true,
+      },
+    },
 
     // Auth Routes
     {
